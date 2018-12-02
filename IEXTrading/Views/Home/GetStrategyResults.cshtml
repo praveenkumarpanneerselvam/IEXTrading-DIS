@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IEXTrading.Models.StrategyResponse>
+@{
+    ViewData["Title"] = "GetStrategyResults";
+}
+<h2>GetStrategyResults</h2>
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.symbol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.companyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrategyValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.symbol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.companyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrategyValue)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>*@
+            </tr>
+        }
+        <tr>
+            <td>
+                <a id="dbopt" asp-controller="Home" asp-action="SaveSuggestions"><img src="~/images/button_save-data.png" /></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+    </script>
